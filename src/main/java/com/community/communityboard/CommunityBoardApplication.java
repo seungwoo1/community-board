@@ -1,4 +1,4 @@
-package com.community.community_board;
+package com.community.communityboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
