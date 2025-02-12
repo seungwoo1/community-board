@@ -28,7 +28,7 @@ public class AuthController {
      */
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody AuthRequest request) {
-        // 요청 객체가 제대로 들어오는지 로그 찍어보기
+        // 요청이 들어왔는지 확인하는 로그 추가!
         System.out.println("회원가입 요청 데이터: " + request.getEmail() + ", " + request.getPassword() + ", " + request.getNickname());
 
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -41,6 +41,10 @@ public class AuthController {
         user.setNickname(request.getNickname());
 
         userRepository.save(user);
+
+        // 회원가입 완료 로그 출력
+        System.out.println("회원가입 완료! 저장된 이메일: " + user.getEmail());
+
         return ResponseEntity.ok("회원가입 성공!");
     }
 }
